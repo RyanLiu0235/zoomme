@@ -1,6 +1,6 @@
 {
   "name": "zoomme",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a lib to zoom images in document",
   "main": "dist/bundle.js",
   "scripts": {
