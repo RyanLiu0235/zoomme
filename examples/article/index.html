@@ -22,11 +22,13 @@
 </head>
 
 <body>
-  <img class="zoomme-example-img"
-    src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522172211927&di=3d47bbcf725d738e403ce924937367c2&imgtype=0&src=http%3A%2F%2Fpic22.nipic.com%2F20120723%2F10458856_211704547361_2.jpg" />
+  <div id="app">
+    <img class="zoomme-example-img"
+      src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522172211927&di=3d47bbcf725d738e403ce924937367c2&imgtype=0&src=http%3A%2F%2Fpic22.nipic.com%2F20120723%2F10458856_211704547361_2.jpg" />
+  </div>
   <script type="text/javascript">
   const zm = new Zoomme({
-    container: document.body
+    container: document.getElementById('app')
   })
 
   </script>

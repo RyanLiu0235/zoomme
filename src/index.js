@@ -40,17 +40,13 @@ class Zoomme {
   constructor({
     container
   }) {
+    // zoom in
     container.addEventListener('click', e => {
       const target = e.target
-      switch (target.tagName) {
-        case 'IMG':
-          const src = target.getAttribute('src')
-          this.setPreviewSrc(src)
-          this.viewer.style.display = 'block'
-          break
-        default:
-          this.viewer.style.display = 'none'
-          break
+      if (target.tagName === 'IMG') {
+        const src = target.getAttribute('src')
+        this.setPreviewSrc(src)
+        this.viewer.style.display = 'block'
       }
     })
     this.document = container.ownerDocument
@@ -59,6 +55,13 @@ class Zoomme {
     this.createViewer()
     this.createPreview()
     this.createStyle()
+
+    // zoom out
+    this.viewer.addEventListener('click', e => {
+      if (e.target.tagName !== 'IMG') {
+        this.viewer.style.display = 'none'
+      }
+    })
   }
 
   createStyle() {

@@ -78,17 +78,13 @@ var src = createCommonjsModule(function (module) {
       var container = _ref.container;
       classCallCheck(this, Zoomme);
 
+      // zoom in
       container.addEventListener('click', function (e) {
         var target = e.target;
-        switch (target.tagName) {
-          case 'IMG':
-            var _src = target.getAttribute('src');
-            _this.setPreviewSrc(_src);
-            _this.viewer.style.display = 'block';
-            break;
-          default:
-            _this.viewer.style.display = 'none';
-            break;
+        if (target.tagName === 'IMG') {
+          var _src = target.getAttribute('src');
+          _this.setPreviewSrc(_src);
+          _this.viewer.style.display = 'block';
         }
       });
       this.document = container.ownerDocument;
@@ -97,6 +93,13 @@ var src = createCommonjsModule(function (module) {
       this.createViewer();
       this.createPreview();
       this.createStyle();
+
+      // zoom out
+      this.viewer.addEventListener('click', function (e) {
+        if (e.target.tagName !== 'IMG') {
+          _this.viewer.style.display = 'none';
+        }
+      });
     }
 
     createClass(Zoomme, [{
