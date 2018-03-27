@@ -8,7 +8,7 @@ export default [{
   output: {
     file: './dist/bundle.js',
     format: 'umd',
-    name: 'foo'
+    name: 'Zoomme'
   },
   plugins: [
     cjs(),
@@ -22,7 +22,7 @@ export default [{
   output: {
     file: './dist/bundle.min.js',
     format: 'umd',
-    name: 'foo'
+    name: 'Zoomme'
   },
   plugins: [
     cjs(),
