@@ -89,7 +89,7 @@ var src = createCommonjsModule(function (module) {
         switch (target.tagName) {
           case 'IMG':
             var _src = target.getAttribute('src');
-            _this.createPreview(_src);
+            _this.setPreviewSrc(_src);
             _this.viewer.style.display = 'block';
             break;
           default:
@@ -98,7 +98,10 @@ var src = createCommonjsModule(function (module) {
         }
       });
       this.document = container.ownerDocument;
+
+      // create DOM
       this.createViewer();
+      this.createPreview();
       this.createStyle();
     }
 
@@ -106,8 +109,8 @@ var src = createCommonjsModule(function (module) {
       key: 'createStyle',
       value: function createStyle() {
         var style = createElement('style', { text: 'text/css' });
-
         var text = createStyleText('.zoomme-viewer', viewerStyle) + createStyleText('.zoomme-viewer .zoomme-preview', previewStyle) + createStyleText('.zoomme-viewer .zoomme-close', closeStyle);
+
         style.textContent = text;
         this.document.head.appendChild(style);
       }
@@ -120,9 +123,15 @@ var src = createCommonjsModule(function (module) {
       }
     }, {
       key: 'createPreview',
-      value: function createPreview(src) {
-        var preview = createElement('img', { class: 'zoomme-preview', src: src });
+      value: function createPreview() {
+        var preview = createElement('img', { class: 'zoomme-preview' });
+        this.preview = preview;
         this.viewer.appendChild(preview);
+      }
+    }, {
+      key: 'setPreviewSrc',
+      value: function setPreviewSrc(src) {
+        this.preview.setAttribute('src', src);
       }
     }]);
     return Zoomme;

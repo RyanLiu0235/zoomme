@@ -51,7 +51,7 @@ class Zoomme {
       switch (target.tagName) {
         case 'IMG':
           const src = target.getAttribute('src')
-          this.createPreview(src)
+          this.setPreviewSrc(src)
           this.viewer.style.display = 'block'
           break
         default:
@@ -60,16 +60,19 @@ class Zoomme {
       }
     })
     this.document = container.ownerDocument
+
+    // create DOM
     this.createViewer()
+    this.createPreview()
     this.createStyle()
   }
 
   createStyle() {
     const style = createElement('style', { text: 'text/css' })
-
-    let text = createStyleText('.zoomme-viewer', viewerStyle) +
+    const text = createStyleText('.zoomme-viewer', viewerStyle) +
       createStyleText('.zoomme-viewer .zoomme-preview', previewStyle) +
       createStyleText('.zoomme-viewer .zoomme-close', closeStyle)
+
     style.textContent = text
     this.document.head.appendChild(style)
   }
@@ -80,9 +83,14 @@ class Zoomme {
     this.viewer = viewer
   }
 
-  createPreview(src) {
-    const preview = createElement('img', { class: 'zoomme-preview', src })
+  createPreview() {
+    const preview = createElement('img', { class: 'zoomme-preview' })
+    this.preview = preview
     this.viewer.appendChild(preview)
+  }
+
+  setPreviewSrc(src) {
+    this.preview.setAttribute('src', src)
   }
 }
 
