@@ -1,7 +1,7 @@
 {
-  "name": "foo",
+  "name": "zoomme",
   "version": "0.0.1",
-  "description": "",
+  "description": "a lib to zoom images in document",
   "main": "dist/bundle.js",
   "scripts": {
     "tdd": "node_modules/.bin/jest --coverage --watchAll",
@@ -39,7 +39,7 @@
     "type": "git",
     "url": "git+https://github.com/stop2stare/zoomme.git"
   },
-  "keywords": [],
+  "keywords": ["zoomme", "zoomable-images"],
   "author": "liucheng",
   "license": "MIT",
   "bugs": {
