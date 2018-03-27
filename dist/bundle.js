@@ -48,16 +48,10 @@ var src = createCommonjsModule(function (module) {
     position: 'fixed',
     left: '50%',
     top: '50%',
+    'max-width': '100%',
+    'max-height': '100%',
     cursor: 'default',
     transform: 'translate3D(-50%, -50%, 0)'
-  };
-
-  var closeStyle = {
-    position: 'fixed',
-    top: 0,
-    right: 0,
-    'font-size': '20px',
-    color: '#fff'
   };
 
   var createStyleText = function createStyleText(sel, style) {
@@ -109,7 +103,7 @@ var src = createCommonjsModule(function (module) {
       key: 'createStyle',
       value: function createStyle() {
         var style = createElement('style', { text: 'text/css' });
-        var text = createStyleText('.zoomme-viewer', viewerStyle) + createStyleText('.zoomme-viewer .zoomme-preview', previewStyle) + createStyleText('.zoomme-viewer .zoomme-close', closeStyle);
+        var text = createStyleText('.zoomme-viewer', viewerStyle) + createStyleText('.zoomme-viewer .zoomme-preview', previewStyle);
 
         style.textContent = text;
         this.document.head.appendChild(style);

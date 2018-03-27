@@ -13,16 +13,10 @@ const previewStyle = {
   position: 'fixed',
   left: '50%',
   top: '50%',
+  'max-width': '100%',
+  'max-height': '100%',
   cursor: 'default',
   transform: 'translate3D(-50%, -50%, 0)'
-}
-
-const closeStyle = {
-  position: 'fixed',
-  top: 0,
-  right: 0,
-  'font-size': '20px',
-  color: '#fff'
 }
 
 const createStyleText = (sel, style) => {
@@ -70,8 +64,7 @@ class Zoomme {
   createStyle() {
     const style = createElement('style', { text: 'text/css' })
     const text = createStyleText('.zoomme-viewer', viewerStyle) +
-      createStyleText('.zoomme-viewer .zoomme-preview', previewStyle) +
-      createStyleText('.zoomme-viewer .zoomme-close', closeStyle)
+      createStyleText('.zoomme-viewer .zoomme-preview', previewStyle)
 
     style.textContent = text
     this.document.head.appendChild(style)

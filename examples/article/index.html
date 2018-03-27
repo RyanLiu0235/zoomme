@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>article</title>
   <script src="../../dist/bundle.js"></script>
   <style type="text/css">
@@ -11,11 +13,17 @@
     padding: 0;
   }
 
+  .zoomme-example-img {
+    display: block;
+    max-width: 100%;
+  }
+
   </style>
 </head>
 
 <body>
-  <img class="zoomme-img" src="../../public/zoomme.png" />
+  <img class="zoomme-example-img"
+    src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522172211927&di=3d47bbcf725d738e403ce924937367c2&imgtype=0&src=http%3A%2F%2Fpic22.nipic.com%2F20120723%2F10458856_211704547361_2.jpg" />
   <script type="text/javascript">
   const zm = new Zoomme({
     container: document.body
